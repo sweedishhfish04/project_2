@@ -1,12 +1,15 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $engBaseField = $("#engBaseField");
+var $foreignLangSub = $("#foreignLangSub");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
+console.log($engBaseField);
+console.log($foreignLangSub);
+
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  postPhrase: function(example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -64,22 +67,23 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
-
-  if (!(example.text && example.description)) {
+  if (!engBaseField) {
+    console.log(example);
     alert("You must enter an example text and description!");
     return;
   }
 
-  API.saveExample(example).then(function() {
+  var phrase = {
+    text: $engBaseField.val().trim(),
+    language: $foreignLangSub.val().trim()
+    //user: someusername.val().trim() --also add comma above
+  };
+
+  API.postPhrase(phrase).then(function() {
     refreshExamples();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $engBaseField.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
