@@ -2,14 +2,12 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "fex_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "root",
-    "database": "fex_db",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false

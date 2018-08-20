@@ -2,6 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
+
         <!--<h1>{{msg}}</h1>-->
         <h1>ForeignExchange</h1>
         <h2>This is how you *really* say it!</h2>
@@ -20,8 +21,31 @@
           </div>
 
         </nav>
-        
-        {{!-- <h3>Recently Updated:</h3>
+
+        <form class="clearfix mb-4" action="POST">
+
+          <div class="form-group">
+            <label for="engBaseField">What phrase would you like to have translated?</label>
+            <input type="text" id="engBaseField" class="form-control" aria-describedby="engBaseField" placeholder="Enter a phrase here">
+          </div>
+
+          <div class="form-group">
+            <label for="foreignLangSub">Select a desired language</label>
+            <select class="form-control" id="foreignLangSub">
+              <option>German</option>
+
+              <!--Add when additional functionality is desired-->
+              {{!--
+              <option>Spanish</option>
+              <option>French</option>
+              <option>Mandarin</option> --}}
+            </select>
+          </div>
+
+          <button id="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+
+        <h3>Examples:</h3>
         <ul id="example-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
