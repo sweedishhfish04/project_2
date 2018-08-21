@@ -5,58 +5,72 @@
 
         <!--<h1>{{msg}}</h1>-->
         <h1 class="col-12 text-center">ForeignExchange</h1>
-        <h2 class="text-center">This is how you <em>really</em> say it!</h2>
-        <nav class="navbar">
-          <div class="form-group col-3">
-            <input type="text" id="languageForm" class="form-control" placeholder="German">
-          </div>
-          <div class="form-group col-3">
-            <input type="text" id="searchForm" class="form-control" placeholder="Type a phrase like: What's your favorite movie?">
-          </div>
-          <div class="form-group col-3">
-            <input type="text" id="catForm" class="form-control" placeholder="Categories. Default=all">
-          </div>
-          <button type="button" class="form-group btn btn-primary col-3">
-            Login / Signup
-          </button>
-
-        </nav>
-
-        <form class="clearfix mb-4" action="POST">
-
-          <div class="form-group">
-            <label for="engBaseField">What phrase would you like to have translated?</label>
-            <input type="text" id="engBaseField" class="form-control" aria-describedby="engBaseField" placeholder="Enter a phrase here">
-          </div>
-
-          <div class="form-group">
-            <label for="foreignLangSub">Select a desired language</label>
-            <select class="form-control" id="foreignLangSub">
-              <option>German</option>
-
-              <!--Add when additional functionality is desired-->
-              {{!--
-              <option>Spanish</option>
-              <option>French</option>
-              <option>Mandarin</option> --}}
-            </select>
-          </div>
-
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+        <h2 class="text-center col-12">This is how you <em>really</em> say it!</h2>
       </div>
     </div>
+
+    <div class="row">
+      <form class="clearfix mb-4 col-12 form-row align-items-center">
+        <div class="form-group col-5">
+          <select class="form-control" id="foreignLangSub">
+            <option>German</option>
+
+            <!--Add when additional functionality is desired-->
+            {{!--
+            <option>Spanish</option>
+            <option>French</option>
+            <option>Mandarin</option> --}}
+          </select>
+        </div>
+
+        <div class="form-group col-5">
+          <select class="form-control" id="catForm">
+            <option>Categories: All</option>
+            <!--Additional Category Options-->
+          </select>
+        </div>
+
+        <button type="button" class="form-group btn btn-primary col-2">
+          Login / Signup
+        </button>
+      </form>
+    </div>
+
+    <div class="row">
+      <form class="clearfix mb-4 col-12 form-row align-items-center" action="POST">
+
+        <div class="form-group col-1">
+          Post
+        </div>
+
+        <div class="form-group col-4">
+          <input type="text" id="engBaseField" class="form-control" aria-describedby="engBaseField" placeholder="Enter a phrase here">
+        </div>
+
+        <div class="form-group col-1">
+          Search
+        </div>
+
+        <div class="form-group col-4">
+          <input type="text" id="searchForm" class="form-control" placeholder="Enter a phrase Here">
+        </div>
+
+        <button type="button" id="submit" class="form-group btn btn-primary col-2">Submit</button>
+      </form>
+    </div>
+
+    <h3>Results:</h3>
+    <ul id="example-list" class="list-group">
+      {{#each examples}}
+      <li data-id="{{this.id}}" class="list-group-item">
+        <a href="example/{{this.id}}">{{this.text}}</a>
+        <button class="btn btn-danger float-right delete">ｘ</button>
+      </li>
+      {{/each}}
+    </ul>
   </div>
+</div>
+</div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
