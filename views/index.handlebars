@@ -11,7 +11,10 @@
 
     <div class="row">
       <form class="clearfix mb-4 col-12 form-row align-items-center">
-        <div class="form-group col-5">
+        <div class="form-group col-1">
+          Translation Language
+        </div>
+        <div class="form-group col-4">
           <select class="form-control" id="foreignLangSub">
             <option>German</option>
 
@@ -23,7 +26,10 @@
           </select>
         </div>
 
-        <div class="form-group col-5">
+        <div class="form-group col-1">
+          Category
+        </div>
+        <div class="form-group col-4">
           <select class="form-control" id="catForm">
             <option>Categories: All</option>
             <!--Additional Category Options-->
@@ -58,20 +64,68 @@
         <button type="button" id="submit" class="form-group btn btn-primary col-2">Submit</button>
       </form>
     </div>
+    {{!--
+    <div class="row">
+      <h3>Results:</h3>
+      <ul id="example-list" class="list-group">
+        {{#each examples}}
+        <li data-id="{{this.id}}" class="list-group-item">
+          <a href="example/{{this.id}}">{{this.text}}</a>
+          <button class="btn btn-danger float-right delete">ｘ</button>
+        </li>
+        {{/each}} --}}
 
-    <h3>Results:</h3>
-    <ul id="example-list" class="list-group">
-      {{#each examples}}
-      <li data-id="{{this.id}}" class="list-group-item">
-        <a href="example/{{this.id}}">{{this.text}}</a>
-        <button class="btn btn-danger float-right delete">ｘ</button>
-      </li>
-      {{/each}}
-    </ul>
+        <!--New Card for Data-->
+
+        <h3>Results:</h3>
+        <!--Add more code here to provide limitations such as Category, Search Phrase, Recent, etc.-->
+        {{#each examples}}
+        <div class="card">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">VT#</a>
+                <!--Vote Total goes here within handlebars when data is available, links to translation data-->
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">VT#2</a>
+                <!--Vote Total goes here within handlebars when data is available, links to translation data-->
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">VT#</a>
+                <!--Vote Total goes here within handlebars when data is available, links to translation data-->
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <p class="card-title phraseDisp">The phrases will go here. {{this.text}}</p>
+            <!--English Phrase will display here!-->
+            <div class="row">
+              <div class="col-auto">
+                <div class="card-text ml-4 transDisp">The leading translation will go here</div>
+                <!--Translation linked from nav item above will be placed here!-->
+
+              </div>
+              <div class="col-auto">
+                <button class="col-auto btn btn-warning voteTotal">142</button> {{!--
+                <!-- {{vote total}}-->--}}
+                <button class="col-auto btn btn-primary upBtn">^</button>
+                <!--Upvote functionality with a button here. Numerical linking to specific translation in db.-->
+                <button class="col-auto btn btn-danger downBtn">V</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="small col-3 phraseUserName">Submitted by: username {{!-- Username --}}              </div>
+              <div class="small col-3 offset-6 transUserName">Translation by: username</div> {{!-- Translation User Name --}}
+            </div>
+          </div>
+        </div>
+        {{/each}}
+
+        <!--End Card-->
+
+      </ul>
+    </div>
+
   </div>
 </div>
-</div>
-</div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
