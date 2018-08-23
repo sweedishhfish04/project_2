@@ -2,6 +2,10 @@ require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
+ 'use strict';
+ 
+let fs = require("fs");
+let https = require("https");
 
 var db = require("./models");
 
@@ -25,7 +29,7 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-
+// require("languages.js")(app);
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
