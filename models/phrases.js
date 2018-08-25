@@ -1,8 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Phrase = sequelize.define("Phrase", {
     phrase: DataTypes.STRING,
-    trans: DataTypes.STRING,
-    votes: DataTypes.INTEGER
+    category: DataTypes.STRING
   });
   return Phrase;
 };

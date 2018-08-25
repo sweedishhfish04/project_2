@@ -34,7 +34,8 @@ module.exports = function(app) {
         db.Trans.create({
           trans: translate,
           language: req.body.language,
-          votes: 0
+          votes: 0,
+          phraseId: jsonObj.id
         }).then( (result) => {
           res.json(result);
 
