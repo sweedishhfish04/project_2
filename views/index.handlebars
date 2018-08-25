@@ -126,7 +126,10 @@
             <!--English Phrase will display here!-->
             <div class="row">
               <div class="col-auto">
-                <div class="card-text ml-4 transDisp">Foreign Phrases here</div>
+                {{#each this.translations as | trans |}}
+                {{log trans.foreignPhrase}}
+                <div class="card-text ml-4 transDisp">{{foreignPhrase}}</div>
+                {{/each}}
                 <!--Translation linked from nav item above will be placed here!-->
 
               </div>
