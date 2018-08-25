@@ -21,8 +21,8 @@ var API = {
   },
   getExamples: function() {
     return $.ajax({
-      url: "api/examples",
-      // url: "/api/phrases",
+      // url: "api/examples",
+      url: "/api/phrases",
       type: "GET"
     });
   },
@@ -146,16 +146,15 @@ var handleFormSubmit = function(event) {
     language: $foreignLangSub.val().trim()
     //user: someusername.val().trim() --also add comma above
   };
-
+ console.log("Phrase: =========================================")
+ console.log(phrase);
   API.postPhrase(phrase).then(function() {
     refreshExamples();
-    // getExamples();
   });
 
   $engBaseField.val("");
   
-  //this is where we take the values from DB table Trans and put it in the page.
-  $foreignLangSub.val("");
+  // $foreignLangSub.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked

@@ -5,7 +5,8 @@
 
         <!--<h1>{{msg}}</h1>-->
         <h1 class="col-12 text-center">ForeignExchange</h1>
-        <h2 class="text-center col-12">This is how you <em>really</em> say it!</h2>
+        <h2 class="text-center col-12">This is how you
+          <em>really</em> say it!</h2>
       </div>
     </div>
 
@@ -18,6 +19,13 @@
           <select class="form-control" id="foreignLangSub">
             <option>German</option>
             <option>Spanish</option>
+            <option>Japanese</option>
+            <option>Chinese (simplified)</option>
+            <option>Italian</option>
+            <option>French</option>
+            <option>Hmong</option>
+
+
 
             <!--Add when additional functionality is desired-->
             {{!--
@@ -33,12 +41,18 @@
         <div class="form-group col-4">
           <select class="form-control" id="catForm">
             <option>Categories: All</option>
+            <option>Casual Phrases</option>
+            <option>Current events</option>
+            <option>Leisure</option>
+
+
             <!--Additional Category Options-->
           </select>
         </div>
 
         <div class="form-group col-2 text-center" id="userName" data-loggedin="false">
-          Welcome, Guest <!--If the user is logged in, this will fill with their name instead of guest-->
+          Welcome, Guest
+          <!--If the user is logged in, this will fill with their name instead of guest-->
         </div>
 
       </form>
@@ -64,7 +78,8 @@
         </div>
 
         <button type="button" class="form-group btn btn-primary col-2" id="loggedBtn">
-          Login / Signup <!--If the user is logged in, replace this field with the text "Logout" and change functionality...-->
+          Login / Signup
+          <!--If the user is logged in, replace this field with the text "Logout" and change functionality...-->
         </button>
 
 
@@ -109,7 +124,7 @@
             <!--English Phrase will display here!-->
             <div class="row">
               <div class="col-auto">
-                <div class="card-text ml-4 transDisp">The leading translation will go here</div>
+                <div class="card-text ml-4 transDisp">The leading translation will go here {{this.text}}</div>
                 <!--Translation linked from nav item above will be placed here!-->
 
               </div>
@@ -123,8 +138,7 @@
             </div>
             <div class="row">
               <div class="small col-3 phraseUserName">Submitted by: username {{!-- Username --}} </div>
-              <div class="small col-3 offset-6 transUserName">Translation by: username</div> {{!-- Translation User Name
-              --}}
+              <div class="small col-3 offset-6 transUserName">Translation by: username</div> {{!-- Translation User Name --}}
             </div>
           </div>
         </div>

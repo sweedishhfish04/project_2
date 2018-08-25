@@ -17,10 +17,9 @@ module.exports = function(app) {
   
   // this code will get all translated phrases relevant to the user
   app.get("/api/phrases", function(req, res) {
-    db.Trans.findAll({
+    db.Trans.findAll({ where: {
       trans: req.body.trans,
-      language: req.body.language,
-      votes: req.body.votes
+      language: req.body.language}
     }).then(function(Trans) {
       res.json(Trans);
     });
@@ -30,27 +29,14 @@ module.exports = function(app) {
   app.post("/api/examples", function(req, res) {
     db.Example.create(req.body).then(function(dbExample) { 
       let jsonObj = JSON.parse(JSON.stringify(dbExample))
-      console.log(jsonObj);
       
-      Languages(jsonObj, (translate) => {
-        console.log('translate: ' + translate)
+      Languages(jsonObj, req.body.language, (translate) => {
         db.Trans.create({
           trans: translate,
-          language: '',
+          language: req.body.language,
           votes: 0
         }).then( (result) => {
-          res.json(dbExample);
-        }) // FIXME: find language and tally votes
-        
-      })
-      //postcb(translate, dbExample, function() {
-      //  db.Trans.create(translate, language, votes)
-      //  res.json(dbExample);
-      //})
-      //var translate = Languages(JSON.parse(JSON.stringify(dbExample)))
-      //res.json(dbExample);
-    });
-  });
+          res.json(result);
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
