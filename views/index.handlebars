@@ -102,6 +102,8 @@
         <!--Add more code here to provide limitations such as Category, Search Phrase, Recent, etc.-->
         <div id="example-list">
         {{#each examples}}
+        {{log "this is" this}}
+        {{log "nativePhrase" this.nativePhrase}}
         <div class="card">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
@@ -120,11 +122,14 @@
             </ul>
           </div>
           <div class="card-body">
-            <p class="card-title phraseDisp">The phrases will go here. {{this.text}}</p>
+            <p class="card-title phraseDisp"> {{this.nativePhrase}}</p>
             <!--English Phrase will display here!-->
             <div class="row">
               <div class="col-auto">
-                <div class="card-text ml-4 transDisp">The leading translation will go here {{this.text}}</div>
+                {{#each this.translations as | trans |}}
+                {{log trans.foreignPhrase}}
+                <div class="card-text ml-4 transDisp">{{foreignPhrase}}</div>
+                {{/each}}
                 <!--Translation linked from nav item above will be placed here!-->
 
               </div>
