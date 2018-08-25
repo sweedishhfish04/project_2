@@ -85,75 +85,43 @@
 
       </form>
     </div>
-    {{!--
-    <div class="row">
-      <h3>Results:</h3>
-      <ul id="example-list" class="list-group">
-        {{#each examples}}
-        <li data-id="{{this.id}}" class="list-group-item">
-          <a href="example/{{this.id}}">{{this.text}}</a>
-          <button class="btn btn-danger float-right delete">ｘ</button>
-        </li>
-        {{/each}} --}}
 
-        <!--New Card for Data-->
 
-        <h3>Results:</h3>
-        <!--Add more code here to provide limitations such as Category, Search Phrase, Recent, etc.-->
-        <div id="example-list">
-        {{#each examples}}
-        {{log "this is" this}}
-        {{log "nativePhrase" this.nativePhrase}}
-        <div class="card">
-          <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">VT#</a>
-                <!--Vote Total goes here within handlebars when data is available, links to translation data-->
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">VT#2</a>
-                <!--Vote Total goes here within handlebars when data is available, links to translation data-->
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">VT#</a>
-                <!--Vote Total goes here within handlebars when data is available, links to translation data-->
-              </li>
-            </ul>
-          </div>
-          <div class="card-body">
-            <p class="card-title phraseDisp"> {{this.nativePhrase}}</p>
-            <!--English Phrase will display here!-->
-            <div class="row">
+    <!--New Card for Data-->
+
+    <h3>Results:</h3>
+    <!--Add more code here to provide limitations such as Category, Search Phrase, Recent, etc.-->
+    <div id="example-list">
+      {{#each examples}}
+      <div class="card">
+        <div class="card-header">
+          {{this.nativePhrase}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Translations</h5>
+
+          {{#each this.translations as | trans |}}
+          <div class="row">
+            
+              <p class="card-text col-auto">{{trans.foreignPhrase}}</p>
               <div class="col-auto">
-                {{#each this.translations as | trans |}}
-                {{log trans.foreignPhrase}}
-                <div class="card-text ml-4 transDisp">{{foreignPhrase}}</div>
-                {{/each}}
-                <!--Translation linked from nav item above will be placed here!-->
-
-              </div>
-              <div class="col-auto">
-                <button class="col-auto btn btn-warning voteTotal">142</button> {{!--
+                <button class="col-auto btn btn-warning voteTotal">{{trans.rating}}</button> {{!--
                 <!-- {{vote total}}-->--}}
                 <button class="col-auto btn btn-primary upBtn">^</button>
                 <!--Upvote functionality with a button here. Numerical linking to specific translation in db.-->
                 <button class="col-auto btn btn-danger downBtn">V</button>
               </div>
-            </div>
-            <div class="row">
-              <div class="small col-3 phraseUserName">Submitted by: username {{!-- Username --}} </div>
-              <div class="small col-3 offset-6 transUserName">Translation by: username</div> {{!-- Translation User Name --}}
-            </div>
+
+            
           </div>
-        </div>
-        {{/each}}
-        </div>
+          {{/each}}
 
-        <!--End Card-->
+          <br>
+          <a href="#" class="btn btn-primary">Add new translation</a>
 
-      </ul>
+        </div>
+      </div>
+      {{/each}}
     </div>
-
   </div>
 </div>
