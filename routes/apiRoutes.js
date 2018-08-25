@@ -1,10 +1,10 @@
 var db = require("../models");
 var Languages = require("../public/js/languages");
 
-function postcb(post, json, cb) {
-  post = Languages(JSON.parse(JSON.stringify(json)))
-  cb();
-};
+// function postcb(post, json, cb) {
+//   post = Languages(JSON.parse(JSON.stringify(json)))
+//   cb();
+// };
 
 module.exports = function(app) {
   // Get all examples
@@ -15,42 +15,28 @@ module.exports = function(app) {
     })
   })
   
-  // this code will get all phrases relevant to the user
+  // this code will get all translated phrases relevant to the user
   app.get("/api/phrases", function(req, res) {
-    db.Trans.findAll({
+    db.Trans.findAll({ where: {
       trans: req.body.trans,
-      language: req.body.language,
-      votes: req.body.votes
-    }).then(function(phrases) {
-      res.json(phrases);
+      language: req.body.language}
+    }).then(function(Trans) {
+      res.json(Trans);
     });
   });
 
-  // Create a new example
+ // Create a new example
   app.post("/api/examples", function(req, res) {
     db.Example.create(req.body).then(function(dbExample) { 
       let jsonObj = JSON.parse(JSON.stringify(dbExample))
-      console.log(jsonObj);
       
-      Languages(jsonObj, (translate) => {
-        console.log('translate: ' + translate)
+      Languages(jsonObj, req.body.language, (translate) => {
         db.Trans.create({
           trans: translate,
-          language: '',
+          language: req.body.language,
           votes: 0
         }).then( (result) => {
-          res.json(dbExample);
-        }) // FIXME: find language and tally votes
-        
-      })
-      //postcb(translate, dbExample, function() {
-      //  db.Trans.create(translate, language, votes)
-      //  res.json(dbExample);
-      //})
-      //var translate = Languages(JSON.parse(JSON.stringify(dbExample)))
-      //res.json(dbExample);
-    });
-  });
+          res.json(result);
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {

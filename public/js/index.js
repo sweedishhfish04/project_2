@@ -21,7 +21,8 @@ var API = {
   },
   getExamples: function() {
     return $.ajax({
-      url: "api/examples",
+      // url: "api/examples",
+      url: "/api/phrases",
       type: "GET"
     });
   },
@@ -145,12 +146,15 @@ var handleFormSubmit = function(event) {
     language: $foreignLangSub.val().trim()
     //user: someusername.val().trim() --also add comma above
   };
-
+ console.log("Phrase: =========================================")
+ console.log(phrase);
   API.postPhrase(phrase).then(function() {
     refreshExamples();
   });
 
   $engBaseField.val("");
+  
+  // $foreignLangSub.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -168,3 +172,6 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+// add event listener to the value changes in the language box
+
+// $foreignLangSub.on("click", handleFormSubmit);

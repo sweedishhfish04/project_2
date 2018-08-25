@@ -1,6 +1,7 @@
 //Phrase must be sent in from json object and parsed
-module.exports = function (phrase, cb) {
-    console.log('Logging phrase: ' + phrase);
+module.exports = function (phrase, language, cb) {
+    // console.log('Logging phrase: ' + phrase);
+    console.log('Logging phrase: ' + JSON.stringify(phrase));
     'use strict';
 
     let fs = require('fs');
@@ -17,9 +18,51 @@ module.exports = function (phrase, cb) {
     let path1 = '/translate?api-version=3.0';
 
     // Translate to target language,
-    // TODO: switch statement for the language; Then assign params to appropiate string specifying the language to be translated in.
-    let params = '&to=es';
+    // TODO: switch statement for the language; Then assign params to appropiate string specifying the language to be translated
+    // let params = '&to=es';
     // let params2 = '&to=en&de';
+
+    // this switch statement will translate into the language the user chooses.
+
+    // this text variable is gonna be the text input from the user, we can get the text from the API postPhrase method.
+    let params = '';
+
+    switch (language) {
+        case 'Spanish':
+            params = '&to=es';
+            break;
+
+        case 'German':
+            params = '&to=de';
+            break;
+
+        case 'Japanese':
+            params = '&to=ja';
+            break;
+
+        case 'Chinese (simplified)':
+            params = '&to=zh-Hans';
+            break;
+
+        case 'Italian':
+            params = '&to=it';
+            break;
+
+        case 'French':
+            params = '&to=fr';
+            break;
+
+        case 'Hmong':
+            params = '&to=mww';
+            break;
+
+        case 'Portuguese':
+            params = '&to=pt';
+            break;
+
+    }
+
+
 
     // this text variable is gonna be the text input from the user, we can get the text from the API postPhrase method.
     let text = phrase.text;
@@ -30,10 +73,12 @@ module.exports = function (phrase, cb) {
             body += d;
         });
         response.on('end', function () {
-           console.log(body)
+            console.log(body)
+            //    console.log('Logging phrase: ' + JSON.stringify(body));  
+
             let json = JSON.parse(body)
             let response = json[0].translations[0].text;
-            
+
             cb(response);
 
         });
@@ -71,3 +116,5 @@ module.exports = function (phrase, cb) {
     Translate(content);
     // return Languages;
 };
+
+
