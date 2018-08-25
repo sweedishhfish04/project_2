@@ -1,10 +1,10 @@
 var db = require("../models");
 var Languages = require("../public/js/languages");
 
-function postcb(post, json, cb) {
-  post = Languages(JSON.parse(JSON.stringify(json)))
-  cb();
-};
+// function postcb(post, json, cb) {
+//   post = Languages(JSON.parse(JSON.stringify(json)))
+//   cb();
+// };
 
 module.exports = function(app) {
   // Get all examples
@@ -15,18 +15,18 @@ module.exports = function(app) {
     })
   })
   
-  // this code will get all phrases relevant to the user
+  // this code will get all translated phrases relevant to the user
   app.get("/api/phrases", function(req, res) {
     db.Trans.findAll({
       trans: req.body.trans,
       language: req.body.language,
       votes: req.body.votes
-    }).then(function(phrases) {
-      res.json(phrases);
+    }).then(function(Trans) {
+      res.json(Trans);
     });
   });
 
-  // Create a new example
+ // Create a new example
   app.post("/api/examples", function(req, res) {
     db.Example.create(req.body).then(function(dbExample) { 
       let jsonObj = JSON.parse(JSON.stringify(dbExample))

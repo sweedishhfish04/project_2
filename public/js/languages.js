@@ -1,6 +1,7 @@
 //Phrase must be sent in from json object and parsed
 module.exports = function (phrase, cb) {
-    console.log('Logging phrase: ' + phrase);
+    // console.log('Logging phrase: ' + phrase);
+    console.log('Logging phrase: ' + JSON.stringify(phrase));  
     'use strict';
 
     let fs = require('fs');
@@ -17,20 +18,31 @@ module.exports = function (phrase, cb) {
     let path1 = '/translate?api-version=3.0';
 
     // Translate to target language,
-    // TODO: switch statement for the language; Then assign params to appropiate string specifying the language to be translated in.
-    let params = '&to=es';
+    // TODO: switch statement for the language; Then assign params to appropiate string specifying the language to be translated
+    // let params = '&to=es';
     // let params2 = '&to=en&de';
 
-    // this text variable is gonna be the text input from the user, we can get the text from the API postPhrase method.
+    // this switch statement will translate into the language the user chooses.
+
+         // this text variable is gonna be the text input from the user, we can get the text from the API postPhrase method.
+        
+    let params =  '&to=es';
+
+    // let params2 = '&to=de';
+    
+
+        // this text variable is gonna be the text input from the user, we can get the text from the API postPhrase method.
     let text = phrase.text;
 
-    let response_handler = function (response) {
+     let response_handler = function (response) {
         let body = '';
         response.on('data', function (d) {
             body += d;
         });
         response.on('end', function () {
            console.log(body)
+        //    console.log('Logging phrase: ' + JSON.stringify(body));  
+
             let json = JSON.parse(body)
             let response = json[0].translations[0].text;
             
@@ -71,3 +83,5 @@ module.exports = function (phrase, cb) {
     Translate(content);
     // return Languages;
 };
+
+
