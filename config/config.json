@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "bum7tiLl",
+    "password": "root",
     "database": "fex_db",
     "host": "localhost",
     "dialect": "mysql"
