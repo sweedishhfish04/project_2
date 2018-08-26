@@ -61,8 +61,8 @@ module.exports = function (app) {
       }
     }).then((result) => {
       let newVotes = result.votes
-      if (req.params.direction === 'up')++newVotes
-      if (req.params.direction === 'down')--newVotes
+      if (req.params.direction === 'up') ++newVotes
+      if (req.params.direction === 'down') --newVotes
       db.Trans.update({
         votes: newVotes
       },
@@ -75,7 +75,14 @@ module.exports = function (app) {
         })
     })
   })
-  
+
+  // Add new user-supplied translations
+  app.post('/api/newTrans', (req, res) => {
+    db.Trans.create(req.body).then( result => {
+      res.json(result)
+    })
+  })
+
   // Delete an example by id
   app.delete("/api/examples/:id", function (req, res) {
       db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {

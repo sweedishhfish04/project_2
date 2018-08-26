@@ -7,15 +7,16 @@ var Translation = function (foreignPhrase, rating) {
 }
 
 // Tabbed card that holds the native phrase and a separate tab for each translation
-var TranslationCard = function (nativePhrase) {
+var TranslationCard = function (nativePhrase, nativePhraseId) {
   this.nativePhrase = nativePhrase,
+  this.nativePhraseId = nativePhraseId,
     this.translations = []
 }
 
 // Recursive magic to grab the translations
 function findTranslations(phraseArr, translationCards, returnCb) {
   if (phraseArr.length > 0) {
-    var card = new TranslationCard(phraseArr[0].text)
+    var card = new TranslationCard(phraseArr[0].text, phraseArr[0].id)
     db.Trans.findAll({
       where: {
         phraseId: phraseArr[0].id

@@ -133,9 +133,17 @@
                 <a href="#" class="btn btn-primary">Add new translation</a>
 
               </div>
-            </div>
-            {{/each}}
+
           </div>
+          {{/each}}
+
+          <br>
+          <form> 
+            <input type="text" id="new-trans-{{this.nativePhraseId}}" class="form-control" placeholder="I would say it like this">
+            <button phrase-id="{{this.nativePhraseId}}" class="btn btn-primary my-2 newTransBtn">Add new translation</button>
+          </form>
+          
+
         </div>
       </div>
     </div>
