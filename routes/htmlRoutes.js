@@ -21,12 +21,14 @@ function findTranslations(phraseArr, translationCards, returnCb) {
         phraseId: phraseArr[0].id
       }
     }).then(transResult => {
-      
+      /*
       let jsonTrans = JSON.stringify(transResult)
       
       for (let k = 0; k < transResult.length; ++k) {
         card.translations.push(new Translation(transResult[k].trans, transResult[k].votes))
       }
+      */
+      card.translations = transResult
       translationCards.push(card)
       findTranslations(phraseArr.slice(1), translationCards, returnCb)
     })
