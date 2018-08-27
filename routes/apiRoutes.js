@@ -7,6 +7,15 @@ var Languages = require("../public/js/languages");
 // };
 
 module.exports = function (app) {
+  
+    // Get User
+
+    app.get("/User", function (req, res) {
+      db.User.findAll().then(function (User) {
+        res.json(User);
+      })
+    })
+  
   // Get all examples
 
   app.get("/api/examples", function (req, res) {

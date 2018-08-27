@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    text-align: center;
+    font-size: 30px;
+}
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: tan;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 0px;
+    border: 1px solid #888;
+    width: 720px;
+    /* Could be more or less, depending on screen size */
+}
+
+input {
+    margin-left: 25px;
+}
+
+label {
+    font-size: 24px;
+}
+
+/* The Close Button */
+
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.closeLogin {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeLogin:hover,
+.closeLogin:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    background: none;
+    color: black;
+}
+
+button:hover {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.submit {
+    margin: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background: blue;
+    color: white;
+}
+
+.tab {
+    display: inline-block;
+    height: 50px;
+    width: 354px;
+    padding: 5px;
+    margin: 0;
+    color: white
+}
+
+.unselected {
+    background-color: maroon;
+}
+
+.unselected:hover {
+    background-color: blue;
+}
+
+.form {
+    margin: 20px;
+}
