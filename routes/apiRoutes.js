@@ -2,15 +2,15 @@ var db = require("../models");
 var Languages = require("../public/js/languages");
 
 module.exports = function (app) {
-  
-    // Get User
 
-    app.get("/User", function (req, res) {
-      db.User.findAll().then(function (User) {
-        res.json(User);
-      })
+  // Get User
+
+  app.get("/User", function (req, res) {
+    db.User.findAll().then(function (User) {
+      res.json(User);
     })
-  
+  })
+
   // Get all phrases
 
   app.get("/api/examples", function (req, res) {
@@ -38,18 +38,24 @@ module.exports = function (app) {
     db.Example.findOrCreate({
       where: {
         text: req.body.text
-      }, defaults: 
+      }, defaults:
         req.body
     })
-    .spread((phrase, created) => {
-      console.log("OH YEAH! I hope this works");
-      console.log(phrase.get({
-        plain: true
-      }))
-      console.log(created);
-      res.json(phrase);
-    })
-  });
+      .spread((phrase, created) => {
+        console.log(created);
+        let jsonObj = JSON.parse(JSON.stringify(phrase));
+        Languages(jsonObj, req.body.language, (translate) => {
+          db.Trans.create({
+            trans: translate,
+            language: req.body.language,
+            votes: 0,
+            phraseId: jsonObj.id
+          }).then((result) => {
+            res.json(result);
+          })
+        });
+      })
+  })
 
   // Handle translation votes
   app.put('/api/vote/:direction/:transId', (req, res) => {
@@ -59,8 +65,8 @@ module.exports = function (app) {
       }
     }).then((result) => {
       let newVotes = result.votes
-      if (req.params.direction === 'up') ++newVotes
-      if (req.params.direction === 'down') --newVotes
+      if (req.params.direction === 'up')++newVotes
+      if (req.params.direction === 'down')--newVotes
       db.Trans.update({
         votes: newVotes
       },
@@ -76,15 +82,15 @@ module.exports = function (app) {
 
   // Add new user-supplied translations
   app.post('/api/newTrans', (req, res) => {
-    db.Trans.create(req.body).then( result => {
+    db.Trans.create(req.body).then(result => {
       res.json(result)
     })
   })
 
   // Delete an example by id
   app.delete("/api/examples/:id", function (req, res) {
-      db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
-        res.json(dbExample);
-      });
+    db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
+      res.json(dbExample);
     });
+  });
 }
