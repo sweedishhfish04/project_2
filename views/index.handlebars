@@ -1,3 +1,6 @@
+
+{{!-- Code for carousel of words 1 --}}
+
 <nav class="navbar  navbar-expand-lg navbar-light bg-light">
   <section class="rw-wrapper">
     <h2 class="rw-sentence">
@@ -15,14 +18,14 @@
         <span>bem vinda</span>
       </div>
     </h2>
-    </div>
-    </div>
+  </section>
 </nav>
-</section>
+
 <div id="home">
   <div class="container">
     <div class="form-group col-4 text-center" id="userName" data-loggedin="false">
-      <h2> Guest</h2>
+      {{!-- This script tag holds the time sensitive greeting of "Good morning/evening/afternoon" --}}
+      <script src="/js/greeting.js"></script>
       <!--If the user is logged in, this will fill with their name instead of guest-->
       <br>
       <button type="button" class="form-group btn btn-warning col-6" id="loggedBtn">
@@ -94,19 +97,23 @@
               <button type="button" id="searchBtn" class="btn btn-warning">Search Phrase!</button>
             </div>
 
-
-          </form>
+{{!-- Code for carousel of words 2 --}}
+          <section class="rw-wrapper-2">
+          <h2 class="rw-sentence-2">
+            <div class="rw-words rw-words-2">
+              <span>Phrases</span>
+              <span>Phrasen</span>
+              <span>Frases</span>
+              <span>フレーズ</span>
+              <span>短语 </span>
+              <span>Frasi</span>
+              <span>nqe lus</span>
+            </div>
+          </h2>
+        </section>
+           </form>
         </div>
-
-
-        <button href="./signup.html" type="button" class="form-group btn btn-primary col-2" id="loggedBtn">
-          Login / Signup
-          <!--If the user is logged in, replace this field with the text "Logout" and change functionality...-->
-        </button>
-        <!--New Card for Data-->
-
-        <h3>Phrases</h3>
-        <!--Add more code here to provide limitations such as Category, Search Phrase, Recent, etc.-->
+ <!--Add more code here to provide limitations such as Category, Search Phrase, Recent, etc.-->
         <div id="example-list">
           {{#each examples}}
           <div class="card">
@@ -147,11 +154,10 @@
 
               </select>
 
-              <button phrase-id="{{this.nativePhraseId}}" class="btn btn-primary my-2 newTransBtn">Add new translation</button>
+              <button phrase-id="{{this.nativePhraseId}}" class="btn btn-warning my-2 newTransBtn">Add new translation</button>
             </form>
           </div>
-          <br>
-          {{/each}}
+          <br> {{/each}}
         </div>
       </div>
     </div>

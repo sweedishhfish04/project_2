@@ -1,30 +1,19 @@
 //Phrase must be sent in from json object and parsed
 module.exports = function (phrase, language, cb) {
-    // console.log('Logging phrase: ' + phrase);
-    console.log('Logging phrase: ' + JSON.stringify(phrase));
     'use strict';
 
     let fs = require('fs');
     let https = require('https');
 
-    // **********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
-
-    // Replace the subscriptionKey string value with your valid subscription key.
     let subscriptionKey = 'ab8347fee07f47ef8b38954f4705b403';
 
     let host = 'api.cognitive.microsofttranslator.com';
     let path1 = '/translate?api-version=3.0';
 
-    // Translate to target language,
-    // TODO: switch statement for the language; Then assign params to appropiate string specifying the language to be translated
-    // let params = '&to=es';
-    // let params2 = '&to=en&de';
-
-    // this switch statement will translate into the language the user chooses.
 
     // this text variable is gonna be the text input from the user, we can get the text from the API postPhrase method.
+    // this switch statement will translate into the language the user chooses.
+
     let params = '';
 
     switch (language) {
@@ -115,6 +104,7 @@ module.exports = function (phrase, language, cb) {
 
     Translate(content);
     // return Languages;
+    // documentation modeled after Microsoft Text Translator API https://docs.microsoft.com/en-us/azure/cognitive-services/translator/quickstart-nodejs-translate
 };
 
 

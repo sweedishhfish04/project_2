@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 // Get references to page elements
 var $engBaseField = $("#engBaseField");
 var $foreignLangSub = $("#foreignLangSub");
@@ -30,7 +23,6 @@ var API = {
   },
   getExamples: function() {
     return $.ajax({
-      // url: "api/examples",
       url: "/api/phrases",
       type: "GET"
     });
@@ -59,8 +51,8 @@ var API = {
   }
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
+// handleFormSubmit is called whenever we submit a new phrase
+// Save the new phrase to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
@@ -78,14 +70,11 @@ var handleFormSubmit = function(event) {
  console.log("Phrase: =========================================")
  console.log(phrase);
   API.postPhrase(phrase).then(function() {
-    //refreshExamples();
     location.reload()
   });
 
   $engBaseField.val("");
-  
-  // $foreignLangSub.val("");
-};
+  };
 
 
 var handleVote = event => {
@@ -110,17 +99,12 @@ var handleNewTrans = event => {
   })
 }
 
-// Add event listeners to the submit and delete buttons
+// Add event listeners to the submit and translate buttons
 $submitBtn.on("click", handleFormSubmit);
 
 $voteBtn.on("click", handleVote);
 
 $newTransBtn.on('click', handleNewTrans)
-
-
-// add event listener to the value changes in the language box
-
-// $foreignLangSub.on("click", handleFormSubmit);
 
 
 

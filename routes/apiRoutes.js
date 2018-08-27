@@ -1,11 +1,6 @@
 var db = require("../models");
 var Languages = require("../public/js/languages");
 
-// function postcb(post, json, cb) {
-//   post = Languages(JSON.parse(JSON.stringify(json)))
-//   cb();
-// };
-
 module.exports = function (app) {
   
     // Get User
@@ -16,7 +11,7 @@ module.exports = function (app) {
       })
     })
   
-  // Get all examples
+  // Get all phrases
 
   app.get("/api/examples", function (req, res) {
     db.Example.findAll({}).then(function (dbExamples) {
@@ -36,7 +31,7 @@ module.exports = function (app) {
     });
   });
 
-  // Create a new example
+  // Create a new phrase
   app.post("/api/examples", function (req, res) {
     db.Example.create(req.body).then(function (dbExample) {
       let jsonObj = JSON.parse(JSON.stringify(dbExample));
