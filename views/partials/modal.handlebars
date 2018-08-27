@@ -1,0 +1,130 @@
+<div id="modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <div id="loginTab" class="tab">
+            Login
+        </div>
+        <div id="signupTab" class="tab">
+            Signup
+        </div>
+
+        <span class="close">&times;</span>
+        <div class="form">
+
+            <div class="tab-content">
+                <div id="signupForm" style="display:none">
+                    <h1>Sign Up</h1>
+
+                    <form action="/" method="post">
+
+                        <div class="top-row">
+                            <div class="field-wrap">
+                                <label>
+                                    First Name
+                                    <span class="req">:</span>
+                                </label>
+                                <input type="text" required autocomplete="off" />
+                            </div>
+
+                            <div class="field-wrap">
+                                <label>
+                                    Last Name
+                                    <span class="req">:</span>
+                                </label>
+                                <input type="text" required autocomplete="off" />
+                            </div>
+                        </div>
+
+                        <div class="field-wrap">
+                            <label>
+                                Email Address
+                                <span class="req">:</span>
+                            </label>
+                            <input type="email" required autocomplete="off" />
+                        </div>
+
+                        <div class="field-wrap">
+                            <label>
+                                Set a Password
+                                <span class="req">:</span>
+                            </label>
+                            <input type="password" required autocomplete="off" />
+                        </div>
+
+                        <div class="field-wrap" class="languages">
+                            <label>
+                                <br> Languages you know
+                                <span class="req">:</span>
+                                <br> Select 1 to 5 on Knowledge (1 being beginner, 5 being master)
+                                <br> Check your Native Language
+                                <br>
+                                <br>
+                            </label>
+                            <input type="text">
+                            <input type="radio" name="1" value="1">1
+                            <input type="radio" name="1" value="2">2
+                            <input type="radio" name="1" value="3">3
+                            <input type="radio" name="1" value="4">4
+                            <input type="radio" name="1" value="5">5
+                            <input type="checkbox">
+                            <br>
+                            <input type="text">
+                            <input type="radio" name="2" value="1">1
+                            <input type="radio" name="2" value="2">2
+                            <input type="radio" name="2" value="3">3
+                            <input type="radio" name="2" value="4">4
+                            <input type="radio" name="2" value="5">5
+                            <input type="checkbox">
+                            <br>
+                            <input type="text">
+                            <input type="radio" name="3" value="1">1
+                            <input type="radio" name="3" value="2">2
+                            <input type="radio" name="3" value="3">3
+                            <input type="radio" name="3" value="4">4
+                            <input type="radio" name="3" value="5">5
+                            <input type="checkbox">
+                            <br>
+                        </div>
+
+                        <button class="submit" type="submit" class="button button-block">Get Started</button>
+
+                    </form>
+
+                </div>
+                <div id="loginForm" style="display:none">
+                    <h1>Welcome Back!</h1>
+
+                    <form action="/" method="post">
+
+                        <div class="field-wrap">
+                            <label>
+                                Email Address
+                                <span class="req">:</span>
+                            </label>
+                            <input type="email" required autocomplete="off" />
+                        </div>
+
+                        <div class="field-wrap">
+                            <label>
+                                Password
+                                <span class="req">:</span>
+                            </label>
+                            <input type="password" required autocomplete="off" />
+                        </div>
+
+                        <button class="submit" class="button button-block">Log In</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- tab-content -->
+
+    </div>
+    <!-- /form -->
+</div>
