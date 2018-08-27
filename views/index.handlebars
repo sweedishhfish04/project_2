@@ -22,25 +22,25 @@
 
 <div id="home">
   <div class="container">
-    <div class="form-group col-4 text-center" id="userName" data-loggedin="false">
+    <div class="form-group text-center" id="userName" data-loggedin="false">
       {{!-- This script tag holds the time sensitive greeting of "Good morning/evening/afternoon" --}}
       <script src="/js/greeting.js"></script>
       <!--If the user is logged in, this will fill with their name instead of guest-->
       <br>
-      <button type="button" class="form-group btn btn-warning col-6" id="loggedBtn">
+      <button type="button" class="form-group btn btn-warning col-md-2 col-6" id="loggedBtn">
         Login / Signup
         <!--If the user is logged in, replace this field with the text "Logout" and change functionality...-->
       </button>
     </div>
 
-    <div class="row">
+    <div class="row sticky-top">
       <div class="col-12">
 
         <div class="row">
-          <form class="clearfix mb-4 col-12 form-row align-items-center">
-            <div class="form-group col-4">
+          <form class="clearfix col-12 form-row align-items-center">
+            <div class="form-group col-md-2 col-6">
               <select class="form-control" id="foreignLangSub">
-                <option>Find Language Here</option>
+                <option>Select Language</option>
                 <option id="de">German</option>
                 <option id="es">Spanish</option>
                 <option id="ja">Japanese</option>
@@ -52,7 +52,7 @@
 
               </select>
             </div>
-            <div class="form-group col-4">
+            <div class="form-group col-md-2 col-6">
               <select class="form-control" id="catForm">
                 <option>Categories</option>
                 <option>Casual Phrases</option>
@@ -63,37 +63,38 @@
                 <!--Additional Category Options-->
               </select>
             </div>
-          </form>
-        </div>
 
-        <div class="row 4">
-          <form class="clearfix mb-4 col-12 form-row align-items-center" action="POST">
-
-            <div class="form-group col-4">
+            <div class="form-group col-md-4 col-8">
               <input type="text" id="engBaseField" class="form-control" aria-describedby="engBaseField" placeholder="Enter a phrase here">
             </div>
-            <div class="form-group col-2">
-              <button type="button" id="submit" class="btn btn-warning">Post Phrase!</button>
+            <div class="form-group col-4">
+              <button type="button" id="submit" class="btn btn-warning">Find</button>
             </div>
-            
-            {{!-- Code for carousel of words 2 --}}
-            <section class="rw-wrapper-2">
-              <h2 class="rw-sentence-2">
-                <div class="rw-words rw-words-2">
-                  <span>Phrases</span>
-                  <span>Phrasen</span>
-                  <span>Frases</span>
-                  <span>フレーズ</span>
-                  <span>短语 </span>
-                  <span>Frasi</span>
-                  <span>nqe lus</span>
-                </div>
-              </h2>
-            </section>
+
           </form>
         </div>
-        {{> phrasecards}}
       </div>
     </div>
+
+    <div class="row 4">
+      <form class="clearfix mb-4 col-12 form-row align-items-center" action="POST">
+
+        {{!-- Code for carousel of words 2 --}}
+        <section class="rw-wrapper-2">
+          <h2 class="rw-sentence-2">
+            <div class="rw-words rw-words-2">
+              <span>Phrases</span>
+              <span>Phrasen</span>
+              <span>Frases</span>
+              <span>フレーズ</span>
+              <span>短语 </span>
+              <span>Frasi</span>
+              <span>nqe lus</span>
+            </div>
+          </h2>
+        </section>
+      </form>
+    </div>
+    {{> phrasecards}}
   </div>
 </div>

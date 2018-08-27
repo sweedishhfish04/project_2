@@ -25,6 +25,9 @@
   border-radius: 5%;
 }
 
+.sticky-top {
+  background-image: url("images/dust_scratches/dust_scratches.png");
+}
 
 body {
     background-image: url("images/hypnotize/hypnotize.png");
