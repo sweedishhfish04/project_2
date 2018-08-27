@@ -1,24 +1,54 @@
-
+/* General body styling, with some hover effects */
 #home {
   background-image: url("images/dust_scratches/dust_scratches.png");
 }
 
+.unselected {
+  background-color: #ffc107;
+}
 
-.container {
+
+.container, .modal-content {
   background-image: url("images/dust_scratches/dust_scratches.png");
 
 }
+
+.close {
+  color: whitesmoke;
+  
+}
+
+.close:hover {
+  color: whitesmoke;
+}
+
+.modal-content, #loginTab, {
+  border-radius: 5%;
+}
+
 
 body {
     background-image: url("images/hypnotize/hypnotize.png");
     background-repeat: repeat;
     }
 
-    h2 {
+    h2, .field-wrap, .submit, .btn-warning, .card {
       font-family:'Righteous', cursive;
+  }
 
-    }
+  /* Translation phrases card and submit buttons hover effect */
+  .card:hover, .btn-warning {
+    -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    -mox-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+  }
 
+  /* Modal submit button effect */
+  .submit:hover {
+    color: #ffc107;
+  }
+
+  /* Nav bar for "ForeignExchange" styling */
 .navbar-expand-lg, .navbar-collapse {
   flex-basis: auto;
   display: flex!important;
@@ -36,6 +66,7 @@ body {
   -webkit-box-direction: normal;
 }
 
+/* Acts like media queries, this was best for the whole design of app */
 :root {
   --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
@@ -44,11 +75,20 @@ body {
     --breakpoint-xl: 1200px;
 }
 
+/* Styling for the carousel "welcome" and "phrases" in different languages */
 .rw-wrapper{
 	width: 80%;
 	position: relative;
 	margin: 110px auto 0 auto;
 	font-family: 'Bree Serif';
+	padding: 10px;
+}
+
+.rw-wrapper-2{
+	width: 50%;
+	position: relative;
+	margin: 90px auto 0 auto;
+  font-family:'Righteous', cursive;
 	padding: 10px;
 }
 
@@ -58,10 +98,26 @@ body {
 	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
 }
 
+.rw-sentence-2{
+	margin: 0;
+	text-align: left;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+}
+
+
+
+
 .rw-sentence span{
 	color: #444;
 	white-space: nowrap;
 	font-size: 200%;
+	font-weight: normal;
+}
+
+.rw-sentence-2 span{
+	color: #444;
+	white-space: nowrap;
+	font-size: 100%;
 	font-weight: normal;
 }
 
@@ -80,6 +136,10 @@ body {
 
 .rw-words-1 span{
 	animation: rotateWordsFirst 27s linear infinite 0s;
+}
+
+.rw-words-2 span{
+	animation: rotateWordsSecond 30s linear infinite 0s;
 }
 
 .rw-words span:nth-child(2) { 
@@ -125,6 +185,7 @@ body {
 
 }
 
+
 @keyframes rotateWordsFirst {
   0% { opacity: 1; animation-timing-function: ease-in; width: 0px; }
   8% { opacity: 0.3; width: 0px; }
@@ -134,3 +195,12 @@ body {
 }
 
 
+@keyframes rotateWordsSecond {
+  0% { opacity: 1; animation-timing-function: ease-in; width: 0px; }
+  10% { opacity: 0.3; width: 0px; }
+20% { opacity: 1; width: 100%; }
+  27% { opacity: 0; width: 100%; }
+  100% { opacity: 0; }
+}
+
+/* Styling for the word carousel ends, code idea from https://tympanus.net/codrops/2012/04/17/rotating-words-with */
