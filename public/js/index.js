@@ -66,7 +66,7 @@ var handleFormSubmit = function (event) {
     return;
   } else {
     API.postPhrase(phrase).then(function () {
-      //location.reload()
+      location.reload()
     });
 
     $engBaseField.val("");
