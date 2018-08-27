@@ -119,7 +119,7 @@
               {{#each this.translations as | trans |}}
               <div class="row">
 
-                <p class="card-text col-auto">{{trans.trans}}</p>
+                <p class="card-text col-auto">{{trans.trans}} ({{trans.language}})</p>
                 <div class="col-auto">
                   <button class="col-auto btn btn-warning voteTotal">{{trans.votes}}</button> {{!--
                   <!-- {{vote total}}-->--}}
@@ -134,9 +134,23 @@
             <br>
             <form>
               <input type="text" id="new-trans-{{this.nativePhraseId}}" class="form-control" placeholder="I would say it like this">
+              <select class="form-control" id="lang-trans-{{this.nativePhraseId}}">
+                <option>Choose Language</option>
+                <option>German</option>
+                <option>Spanish</option>
+                <option>Japanese</option>
+                <option>Chinese (simplified)</option>
+                <option>Italian</option>
+                <option>French</option>
+                <option>Hmong</option>
+                <option>Portuguese</option>
+
+              </select>
+
               <button phrase-id="{{this.nativePhraseId}}" class="btn btn-primary my-2 newTransBtn">Add new translation</button>
             </form>
           </div>
+          <br>
           {{/each}}
         </div>
       </div>
