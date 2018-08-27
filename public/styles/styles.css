@@ -1,8 +1,136 @@
+
+#home {
+  background-image: url("images/dust_scratches/dust_scratches.png");
+}
+
+
 .container {
-  background-color: lightblue;
-  border-radius: 0px 0px 7px 7px;
+  background-image: url("images/dust_scratches/dust_scratches.png");
+
 }
 
 body {
-  background-color: darkblue;
+    background-image: url("images/hypnotize/hypnotize.png");
+    background-repeat: repeat;
+    }
+
+    h2 {
+      font-family:'Righteous', cursive;
+
+    }
+
+.navbar-expand-lg, .navbar-collapse {
+  flex-basis: auto;
+  display: flex!important;
+  background-blend-mode: color;
 }
+
+.navbar-collapse {
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.navbar-expand-lg {
+  -webkit-box-direction: normal;
+}
+
+:root {
+  --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+}
+
+.rw-wrapper{
+	width: 80%;
+	position: relative;
+	margin: 110px auto 0 auto;
+	font-family: 'Bree Serif';
+	padding: 10px;
+}
+
+.rw-sentence{
+	margin: 0;
+	text-align: left;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+}
+
+.rw-sentence span{
+	color: #444;
+	white-space: nowrap;
+	font-size: 200%;
+	font-weight: normal;
+}
+
+.rw-words{
+	display: inline;
+	text-indent: 10px;
+}
+
+.rw-words span{
+	position: absolute;
+	opacity: 0;
+	overflow: hidden;
+	width: 100%;
+	color: #6b969d;
+}
+
+.rw-words-1 span{
+	animation: rotateWordsFirst 27s linear infinite 0s;
+}
+
+.rw-words span:nth-child(2) { 
+	animation-delay: 3s; 
+  color: #6b889d;
+  font-family: 'Pacifico', cursive;
+
+}
+.rw-words span:nth-child(3) { 
+	animation-delay: 6s; 
+  color: #6b739d;	
+  font-family: 'Baloo Tammudu', cursive;
+
+}
+.rw-words span:nth-child(4) { 
+	animation-delay: 9s; 
+  color: #7a6b9d;
+  font-family: 'Permanent Marker', cursive;
+
+}
+.rw-words span:nth-child(5) { 
+	animation-delay: 12s; 
+  color: #8d6b9d;
+  font-family: 'Satisfy', cursive;
+
+}
+.rw-words span:nth-child(6) {  
+	animation-delay: 15s; 
+  color: #9b6b9d;
+  font-family: 'Diplomata SC', cursive;
+
+}
+.rw-words span:nth-child(7) {  
+	animation-delay: 18s; 
+  color: #9b6b9d;
+  font-family: 'Orbitron', sans-serif;
+
+}
+.rw-words span:nth-child(8) {  
+	animation-delay: 21s; 
+  color: #9b6b9d;
+  font-family: 'Bungee Inline', cursive;
+
+}
+
+@keyframes rotateWordsFirst {
+  0% { opacity: 1; animation-timing-function: ease-in; width: 0px; }
+  8% { opacity: 0.3; width: 0px; }
+19% { opacity: 1; width: 100%; }
+  25% { opacity: 0; width: 100%; }
+  100% { opacity: 0; }
+}
+
+

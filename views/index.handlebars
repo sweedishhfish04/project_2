@@ -1,127 +1,142 @@
+<nav class="navbar  navbar-expand-lg navbar-light bg-light">
+  <section class="rw-wrapper">
+    <h2 class="rw-sentence">
+      <div class="rw-words rw-words-1">
+        <a href="#" class="navbar-brand">
+          <h2>ForeignExchange</h2>
+        </a>
+
+        <span>Willkommen</span>
+        <span>Bienvenido</span>
+        <span>欢迎</span>
+        <span>Benvenuto</span>
+        <span>Bienvenue</span>
+        <span>txais tos</span>
+        <span>bem vinda</span>
+      </div>
+    </h2>
+    </div>
+    </div>
+</nav>
+</section>
 <div id="home">
   <div class="container">
+     <div class="form-group col-4 text-center" id="userName" data-loggedin="false">
+               <h2> Guest</h2>
+              <!--If the user is logged in, this will fill with their name instead of guest-->
+              <br>
+              <button type="button" class="form-group btn btn-warning col-6" id="loggedBtn">
+                Login / Signup
+                <!--If the user is logged in, replace this field with the text "Logout" and change functionality...-->
+              </button>
+            </div>
+
     <div class="row">
       <div class="col-12">
 
-        <!--<h1>{{msg}}</h1>-->
-        <h1 class="col-12 text-center">ForeignExchange</h1>
-        <h2 class="text-center col-12">This is how you
-          <em>really</em> say it!</h2>
-      </div>
-    </div>
+        <div class="row">
+          <form class="clearfix mb-4 col-12 form-row align-items-center">
+            <div class="form-group col-4">
+              <select class="form-control" id="foreignLangSub">
+                <option>Find Language Here</option>
+                <option id="de">German</option>
+                <option id="es">Spanish</option>
+                <option id="ja">Japanese</option>
+                <option id="zh-hans">Chinese (simplified)</option>
+                <option id="it">Italian</option>
+                <option id="fr">French</option>
+                <option id="mww">Hmong</option>
+                <option id="pt">Portuguese</option>
 
-    <div class="row">
-      <form class="clearfix mb-4 col-12 form-row align-items-center">
-        <div class="form-group col-1">
-          Translation Language
-        </div>
-        <div class="form-group col-4">
-          <select class="form-control" id="foreignLangSub">
-            <option>German</option>
-            <option>Spanish</option>
-            <option>Japanese</option>
-            <option>Chinese (simplified)</option>
-            <option>Italian</option>
-            <option>French</option>
-            <option>Hmong</option>
-
-
-
-            <!--Add when additional functionality is desired-->
-            {{!--
-            <option>Spanish</option>
-            <option>French</option>
-            <option>Mandarin</option> --}}
-          </select>
-        </div>
-
-        <div class="form-group col-1">
-          Category
-        </div>
-        <div class="form-group col-4">
-          <select class="form-control" id="catForm">
-            <option>Categories: All</option>
-            <option>Casual Phrases</option>
-            <option>Current events</option>
-            <option>Leisure</option>
+              </select>
+            </div>
+            <div class="form-group col-4">
+              <select class="form-control" id="catForm">
+                <option>Categories</option>
+               <option>Casual Phrases</option>
+                <option>Current events</option>
+                <option>Leisure</option>
 
 
-            <!--Additional Category Options-->
-          </select>
+                <!--Additional Category Options-->
+              </select>
+            </div>
+
+            {{!-- <div class="form-group col-4 text-center" id="userName" data-loggedin="false">
+              Welcome, Guest
+              <!--If the user is logged in, this will fill with their name instead of guest-->
+              <button type="button" class="form-group btn btn-primary col-4" id="loggedBtn">
+                Login / Signup
+                <!--If the user is logged in, replace this field with the text "Logout" and change functionality...-->
+              </button>
+            </div> --}}
+
+          </form>
         </div>
 
-        <div class="form-group col-2 text-center" id="userName" data-loggedin="false">
-          Welcome, Guest
-          <!--If the user is logged in, this will fill with their name instead of guest-->
+        <div class="row 4">
+          <form class="clearfix mb-4 col-12 form-row align-items-center" action="POST">
+
+            <div class="form-group col-4">
+              <input type="text" id="engBaseField" class="form-control" aria-describedby="engBaseField" placeholder="Enter a phrase here">
+            </div>
+            <div class="form-group col-2">
+              <button type="button" id="submit" class="btn btn-warning">Post Phrase!</button>
+            </div>
+
+           <div class="form-group col-4">
+
+              <input class=" form-control" placeholder="Enter desired phrase Here" value="" name="search" id="search">
+            </div>
+
+            <div class="form-group col-2">
+              <button type="button" id="searchBtn" class="btn btn-warning">Search Phrase!</button>
+            </div>
+
+
+          </form>
         </div>
 
-      </form>
-    </div>
-
-    <div class="row 4">
-      <form class="clearfix mb-4 col-12 form-row align-items-center" action="POST">
-
-        <div class="form-group col-1">
-          <button type="button" id="submit" class="btn btn-primary">Post</button>
-        </div>
-
-        <div class="form-group col-4">
-          <input type="text" id="engBaseField" class="form-control" aria-describedby="engBaseField" placeholder="Enter a phrase here">
-        </div>
-
-        <div class="form-group col-1">
-          <button type="button" id="searchBtn" class="btn btn-primary">Search</button>
-        </div>
-
-        <div class="form-group col-4">
-          <input type="text" id="searchForm" class="form-control" placeholder="Enter a phrase Here">
-        </div>
 
         <button href="./signup.html" type="button" class="form-group btn btn-primary col-2" id="loggedBtn">
           Login / Signup
           <!--If the user is logged in, replace this field with the text "Logout" and change functionality...-->
         </button>
+        <!--New Card for Data-->
+
+        <h3>Phrases</h3>
+        <!--Add more code here to provide limitations such as Category, Search Phrase, Recent, etc.-->
+        <div id="example-list">
+          {{#each examples}}
+          <div class="card">
+            <div class="card-header">
+              {{this.nativePhrase}}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Translations</h5>
+
+              {{#each this.translations as | trans |}}
+              <div class="row">
+
+                <p class="card-text col-auto">{{trans.foreignPhrase}}</p>
+                <div class="col-auto">
+                  <button class="col-auto btn btn-warning voteTotal">{{trans.rating}}</button> {{!--
+                  <!-- {{vote total}}-->--}}
+                  <button class="col-auto btn btn-primary upBtn">^</button>
+                  <!--Upvote functionality with a button here. Numerical linking to specific translation in db.-->
+                  <button class="col-auto btn btn-danger downBtn">V</button>
+                </div>
 
 
-      </form>
-    </div>
-
-
-    <!--New Card for Data-->
-
-    <h3>Results:</h3>
-    <!--Add more code here to provide limitations such as Category, Search Phrase, Recent, etc.-->
-    <div id="example-list">
-      {{#each examples}}
-      <div class="card">
-        <div class="card-header">
-          {{this.nativePhrase}}
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Translations</h5>
-
-          {{#each this.translations as | trans |}}
-          <div class="row">
-            
-              <p class="card-text col-auto">{{trans.foreignPhrase}}</p>
-              <div class="col-auto">
-                <button class="col-auto btn btn-warning voteTotal">{{trans.rating}}</button> {{!--
-                <!-- {{vote total}}-->--}}
-                <button class="col-auto btn btn-primary upBtn">^</button>
-                <!--Upvote functionality with a button here. Numerical linking to specific translation in db.-->
-                <button class="col-auto btn btn-danger downBtn">V</button>
               </div>
+              {{/each}}
 
-            
+              <br>
+              <a href="#" class="btn btn-primary">Add new translation</a>
+
+            </div>
           </div>
           {{/each}}
-
-          <br>
-          <a href="#" class="btn btn-primary">Add new translation</a>
-
         </div>
       </div>
-      {{/each}}
     </div>
-  </div>
-</div>
