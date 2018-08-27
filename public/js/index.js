@@ -102,7 +102,7 @@ var handleNewTrans = event => {
   let transObj = {
     phraseId: pId,
     trans: nt,
-    language: $foreignLangSub.val().trim(),
+    language: $("#lang-trans-" + pId).val().trim(),
     votes: 0
   }
   API.addTrans(transObj).then( () => {
