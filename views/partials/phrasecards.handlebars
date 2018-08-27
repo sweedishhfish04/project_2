@@ -1,0 +1,46 @@
+<!--Add more code here to provide limitations such as Category, Search Phrase, Recent, etc.-->
+<div id="example-list">
+  {{#each examples}}
+  <div class="card">
+    <div class="card-header">
+      {{this.nativePhrase}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Translations</h5>
+
+      {{#each this.translations as | trans |}}
+      <div class="row">
+
+        <p class="card-text col-auto">{{trans.trans}} ({{trans.language}})</p>
+        <div class="col-auto">
+          <button class="col-auto btn btn-warning voteTotal">{{trans.votes}}</button> {{!--
+          <!-- {{vote total}}-->--}}
+          <button trans-id="{{trans.id}}" vote-type="up" class="col-auto btn btn-primary voteBtn">^</button>
+          <!--Upvote functionality with a button here. Numerical linking to specific translation in db.-->
+          <button trans-id="{{trans.id}}" vote-type="down" class="col-auto btn btn-danger voteBtn">v</button>
+        </div>
+      </div>
+      {{/each}}
+      <br>
+      <form class="row">
+        <input type="text" id="new-trans-{{this.nativePhraseId}}" class="form-control" placeholder="I would say it like this">
+
+        <select class="form-control form-group col-6" id="lang-trans-{{this.nativePhraseId}}">
+          <option>Choose Language</option>
+          <option>German</option>
+          <option>Spanish</option>
+          <option>Japanese</option>
+          <option>Chinese (simplified)</option>
+          <option>Italian</option>
+          <option>French</option>
+          <option>Hmong</option>
+          <option>Portuguese</option>
+        </select>
+
+        <button phrase-id="{{this.nativePhraseId}}" class="form-group btn btn-warning newTransBtn col-2">Add new translation</button>
+
+      </form>
+    </div>
+  </div>
+  <br> {{/each}}
+</div>

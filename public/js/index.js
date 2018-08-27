@@ -1,33 +1,31 @@
 // Get references to page elements
 var $engBaseField = $("#engBaseField");
 var $foreignLangSub = $("#foreignLangSub");
+var $catForm = $("#catForm");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 var $voteBtn = $(".voteBtn");
 var $newTransBtn = $(".newTransBtn")
 
-console.log($engBaseField);
-console.log($foreignLangSub);
-
 // The API object contains methods for each kind of request we'll make
 var API = {
-  postPhrase: function(example) {
+  postPhrase: function (phraseData) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
       url: "api/examples",
-      data: JSON.stringify(example)
+      data: JSON.stringify(phraseData)
     });
   },
-  getExamples: function() {
+  getExamples: function () {
     return $.ajax({
       url: "/api/phrases",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteExample: function (id) {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
@@ -53,32 +51,31 @@ var API = {
 
 // handleFormSubmit is called whenever we submit a new phrase
 // Save the new phrase to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
-
-  if (!engBaseField) {
-    console.log(example);
-    alert("You must enter an example text and description!");
-    return;
-  }
-
   var phrase = {
     text: $engBaseField.val().trim(),
-    language: $foreignLangSub.val().trim()
+    language: $foreignLangSub.val().trim(),
+    category: $catForm.val().trim()
     //user: someusername.val().trim() --also add comma above
   };
- console.log("Phrase: =========================================")
- console.log(phrase);
-  API.postPhrase(phrase).then(function() {
-    location.reload()
-  });
+  console.log(phrase);
+  if (!phrase.text || phrase.language === "Find Language Here") {
+    console.log("bad request");
+    alert("You must enter an example text and description!");
+    return;
+  } else {
+    API.postPhrase(phrase).then(function () {
+      location.reload()
+    });
 
-  $engBaseField.val("");
+    $engBaseField.val("");
   };
+};
 
 
 var handleVote = event => {
-  API.vote($(event.target).attr('vote-type'), $(event.target).attr('trans-id')).then( () => {
+  API.vote($(event.target).attr('vote-type'), $(event.target).attr('trans-id')).then(() => {
     location.reload()
   })
 }
@@ -94,8 +91,9 @@ var handleNewTrans = event => {
     language: $("#lang-trans-" + pId).val().trim(),
     votes: 0
   }
-  API.addTrans(transObj).then( () => {
-    location.reload()
+  API.addTrans(transObj).then(() => {
+    $exampleList.empty();
+
   })
 }
 

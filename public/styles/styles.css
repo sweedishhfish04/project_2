@@ -7,7 +7,6 @@
   background-color: #ffc107;
 }
 
-
 .container, .modal-content {
   background-image: url("images/dust_scratches/dust_scratches.png");
 
@@ -104,9 +103,6 @@ body {
 	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
 }
 
-
-
-
 .rw-sentence span{
 	color: #444;
 	white-space: nowrap;
@@ -184,7 +180,6 @@ body {
   font-family: 'Bungee Inline', cursive;
 
 }
-
 
 @keyframes rotateWordsFirst {
   0% { opacity: 1; animation-timing-function: ease-in; width: 0px; }
