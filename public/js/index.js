@@ -92,7 +92,8 @@ var handleNewTrans = event => {
     votes: 0
   }
   API.addTrans(transObj).then(() => {
-    $exampleList.empty();
+    // $exampleList.empty();
+    location.reload();
 
   })
 }
