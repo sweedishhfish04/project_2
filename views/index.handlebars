@@ -21,15 +21,15 @@
 </section>
 <div id="home">
   <div class="container">
-     <div class="form-group col-4 text-center" id="userName" data-loggedin="false">
-               <h2> Guest</h2>
-              <!--If the user is logged in, this will fill with their name instead of guest-->
-              <br>
-              <button type="button" class="form-group btn btn-warning col-6" id="loggedBtn">
-                Login / Signup
-                <!--If the user is logged in, replace this field with the text "Logout" and change functionality...-->
-              </button>
-            </div>
+    <div class="form-group col-4 text-center" id="userName" data-loggedin="false">
+      <h2> Guest</h2>
+      <!--If the user is logged in, this will fill with their name instead of guest-->
+      <br>
+      <button type="button" class="form-group btn btn-warning col-6" id="loggedBtn">
+        Login / Signup
+        <!--If the user is logged in, replace this field with the text "Logout" and change functionality...-->
+      </button>
+    </div>
 
     <div class="row">
       <div class="col-12">
@@ -53,7 +53,7 @@
             <div class="form-group col-4">
               <select class="form-control" id="catForm">
                 <option>Categories</option>
-               <option>Casual Phrases</option>
+                <option>Casual Phrases</option>
                 <option>Current events</option>
                 <option>Leisure</option>
 
@@ -62,7 +62,8 @@
               </select>
             </div>
 
-            {{!-- <div class="form-group col-4 text-center" id="userName" data-loggedin="false">
+            {{!--
+            <div class="form-group col-4 text-center" id="userName" data-loggedin="false">
               Welcome, Guest
               <!--If the user is logged in, this will fill with their name instead of guest-->
               <button type="button" class="form-group btn btn-primary col-4" id="loggedBtn">
@@ -84,7 +85,7 @@
               <button type="button" id="submit" class="btn btn-warning">Post Phrase!</button>
             </div>
 
-           <div class="form-group col-4">
+            <div class="form-group col-4">
 
               <input class=" form-control" placeholder="Enter desired phrase Here" value="" name="search" id="search">
             </div>
@@ -118,25 +119,27 @@
               {{#each this.translations as | trans |}}
               <div class="row">
 
-                <p class="card-text col-auto">{{trans.foreignPhrase}}</p>
+                <p class="card-text col-auto">{{trans.trans}}</p>
                 <div class="col-auto">
-                  <button class="col-auto btn btn-warning voteTotal">{{trans.rating}}</button> {{!--
+                  <button class="col-auto btn btn-warning voteTotal">{{trans.votes}}</button> {{!--
                   <!-- {{vote total}}-->--}}
-                  <button class="col-auto btn btn-primary upBtn">^</button>
+                  <button trans-id="{{trans.id}}" vote-type="up" class="col-auto btn btn-primary voteBtn">^</button>
                   <!--Upvote functionality with a button here. Numerical linking to specific translation in db.-->
-                  <button class="col-auto btn btn-danger downBtn">V</button>
+                  <button trans-id="{{trans.id}}" vote-type="down" class="col-auto btn btn-danger voteBtn">v</button>
                 </div>
-
-
               </div>
               {{/each}}
-
               <br>
-              <a href="#" class="btn btn-primary">Add new translation</a>
-
             </div>
+            <br>
+            <form>
+              <input type="text" id="new-trans-{{this.nativePhraseId}}" class="form-control" placeholder="I would say it like this">
+              <button phrase-id="{{this.nativePhraseId}}" class="btn btn-primary my-2 newTransBtn">Add new translation</button>
+            </form>
           </div>
           {{/each}}
         </div>
       </div>
     </div>
+  </div>
+</div>
