@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 // Get references to page elements
 var $engBaseField = $("#engBaseField");
 var $foreignLangSub = $("#foreignLangSub");
@@ -66,7 +73,10 @@ var handleFormSubmit = function(event) {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
 // add event listener to the value changes in the language box
 
 // $foreignLangSub.on("click", handleFormSubmit);
+
+
+
+
