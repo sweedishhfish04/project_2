@@ -1,5 +1,4 @@
-
-{{!-- Code for carousel of words 1 --}}
+ {{!-- Code for carousel of words 1 --}}
 
 <nav class="navbar  navbar-expand-lg navbar-light bg-light">
   <section class="rw-wrapper">
@@ -64,17 +63,6 @@
                 <!--Additional Category Options-->
               </select>
             </div>
-
-            {{!--
-            <div class="form-group col-4 text-center" id="userName" data-loggedin="false">
-              Welcome, Guest
-              <!--If the user is logged in, this will fill with their name instead of guest-->
-              <button type="button" class="form-group btn btn-primary col-4" id="loggedBtn">
-                Login / Signup
-                <!--If the user is logged in, replace this field with the text "Logout" and change functionality...-->
-              </button>
-            </div> --}}
-
           </form>
         </div>
 
@@ -97,68 +85,23 @@
               <button type="button" id="searchBtn" class="btn btn-warning">Search Phrase!</button>
             </div>
 
-{{!-- Code for carousel of words 2 --}}
-          <section class="rw-wrapper-2">
-          <h2 class="rw-sentence-2">
-            <div class="rw-words rw-words-2">
-              <span>Phrases</span>
-              <span>Phrasen</span>
-              <span>Frases</span>
-              <span>フレーズ</span>
-              <span>短语 </span>
-              <span>Frasi</span>
-              <span>nqe lus</span>
-            </div>
-          </h2>
-        </section>
-           </form>
-        </div>
- <!--Add more code here to provide limitations such as Category, Search Phrase, Recent, etc.-->
-        <div id="example-list">
-          {{#each examples}}
-          <div class="card">
-            <div class="card-header">
-              {{this.nativePhrase}}
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Translations</h5>
-
-              {{#each this.translations as | trans |}}
-              <div class="row">
-
-                <p class="card-text col-auto">{{trans.trans}} ({{trans.language}})</p>
-                <div class="col-auto">
-                  <button class="col-auto btn btn-warning voteTotal">{{trans.votes}}</button> {{!--
-                  <!-- {{vote total}}-->--}}
-                  <button trans-id="{{trans.id}}" vote-type="up" class="col-auto btn btn-primary voteBtn">^</button>
-                  <!--Upvote functionality with a button here. Numerical linking to specific translation in db.-->
-                  <button trans-id="{{trans.id}}" vote-type="down" class="col-auto btn btn-danger voteBtn">v</button>
+            {{!-- Code for carousel of words 2 --}}
+            <section class="rw-wrapper-2">
+              <h2 class="rw-sentence-2">
+                <div class="rw-words rw-words-2">
+                  <span>Phrases</span>
+                  <span>Phrasen</span>
+                  <span>Frases</span>
+                  <span>フレーズ</span>
+                  <span>短语 </span>
+                  <span>Frasi</span>
+                  <span>nqe lus</span>
                 </div>
-              </div>
-              {{/each}}
-              <br>
-            </div>
-            <br>
-            <form>
-              <input type="text" id="new-trans-{{this.nativePhraseId}}" class="form-control" placeholder="I would say it like this">
-              <select class="form-control" id="lang-trans-{{this.nativePhraseId}}">
-                <option>Choose Language</option>
-                <option>German</option>
-                <option>Spanish</option>
-                <option>Japanese</option>
-                <option>Chinese (simplified)</option>
-                <option>Italian</option>
-                <option>French</option>
-                <option>Hmong</option>
-                <option>Portuguese</option>
-
-              </select>
-
-              <button phrase-id="{{this.nativePhraseId}}" class="btn btn-warning my-2 newTransBtn">Add new translation</button>
-            </form>
-          </div>
-          <br> {{/each}}
+              </h2>
+            </section>
+          </form>
         </div>
+        {{> phrasecards}}
       </div>
     </div>
   </div>

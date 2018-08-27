@@ -33,20 +33,23 @@ module.exports = function (app) {
 
   // Create a new phrase
   app.post("/api/examples", function (req, res) {
-    db.Example.create(req.body).then(function (dbExample) {
-      let jsonObj = JSON.parse(JSON.stringify(dbExample));
-      Languages(jsonObj, req.body.language, (translate) => {
-        db.Trans.create({
-          trans: translate,
-          language: req.body.language,
-          votes: 0,
-          phraseId: jsonObj.id
-        }).then((result) => {
-          res.json(result);
-        })
-      })
+    console.log("----------------------------------------- REQ BODY");
+    console.log(req.body);
+    db.Example.findOrCreate({
+      where: {
+        text: req.body.text
+      }, defaults: 
+        req.body
     })
-  })
+    .spread((phrase, created) => {
+      console.log("OH YEAH! I hope this works");
+      console.log(phrase.get({
+        plain: true
+      }))
+      console.log(created);
+      res.json(phrase);
+    })
+  });
 
   // Handle translation votes
   app.put('/api/vote/:direction/:transId', (req, res) => {
